@@ -83,7 +83,7 @@ const TestStart = () => {
     const date = today.getDate();
     const testName = `Test ${date} - ${day}`;
 
-    await fetch('http://localhost:5000/api/test/submit', {
+    await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/test/submit`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

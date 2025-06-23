@@ -9,7 +9,6 @@ import Profile from "./pages/Profile";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Private route protection
 const PrivateRoute = ({ children, redirectPath }) => {
   const isAuthenticated = Boolean(localStorage.getItem("token"));
   return isAuthenticated ? children : <Navigate to={`/login?redirect=${redirectPath}`} replace />;
@@ -18,7 +17,6 @@ const PrivateRoute = ({ children, redirectPath }) => {
 const App = () => {
   return (
     <Router>
-      {/* ToastContainer should be outside Routes for global access */}
       <ToastContainer position="bottom-right" autoClose={3000} hideProgressBar closeOnClick />
       
       <Routes>
