@@ -8,22 +8,24 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const redirect = new URLSearchParams(location.search).get('redirect') || '/tests';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, { email, password });
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
-      navigate(redirect);
       toast.success('Login successful');
+      navigate(redirect);
     } catch (err) {
-      console.error(err.response?.data || err.message);
-      alert('Invalid credentials');
       toast.error('Invalid credentials');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -65,9 +67,14 @@ const Login = () => {
 
           <button
             type="submit"
-            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 rounded-md transition duration-200 shadow"
+            disabled={isLoading}
+            className="w-full bg-teal-600 hover:bg-teal-700 text-white font-semibold py-2 rounded-md transition duration-200 shadow flex justify-center items-center gap-2"
           >
-            Login
+            {isLoading ? (
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+            ) : (
+              'Login'
+            )}
           </button>
         </form>
 
