@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gay | Game</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Outfit", sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      background: linear-gradient(135deg, #161a21 20%, #a5bbc6 100%);
+    }
+
+    h1 {
+      margin-bottom: 40px;
+      color: #fff;
+    }
+
+    #yesBtn,
+    #noBtn {
+      padding: 15px 30px;
+      font-size: 18px;
+      cursor: pointer;
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      user-select: none;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    #yesBtn {
+      left: 40%;
+      background-color: #0d9a4f;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      background-color: #0b7a3f;
+    }
+
+    #noBtn {
+      background-color: #d51609;
+      color: white;
+    }
+
+    #noBtn:hover {
+      background-color: #a81307;
+    }
+
+    /* Modal styles */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+      max-width: 400px;
+      text-align: center;
+      animation: popupFadeIn 0.4s ease forwards;
+      position: relative;
+    }
+
+    @keyframes popupFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #05591e;
+    }
+
+    .modal-content p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .close-btn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 25px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .close-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Are you gay?</h1>
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">No</button>
+
+  <!-- Modal Popup -->
+  <div id="modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-describedby="modalDesc">
+    <div class="modal-content">
+      <h2 id="modalTitle">Thank You!</h2>
+      <p id="modalDesc">We're thrilled that you like this webpage. Your support means a lot! 😊</p>
+      <button class="close-btn" id="closeModalBtn">Close</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+    const yesBtn = document.getElementById('yesBtn');
+    const modal = document.getElementById('modal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    // Messages for Yes button popup
+    const funMessages = [
+      {
+        title: "Proud and Fabulous! 🏳️‍🌈",
+        message: "You’re part of the rainbow squad! Shine bright and keep being awesome! 🌟"
+      },
+      {
+        title: "Yaaas Queen! 👑",
+        message: "Serving looks and spreading love everywhere you go! Keep slaying! 💅"
+      },
+      {
+        title: "Love is Love ❤️",
+        message: "No matter who you love, your happiness is what truly matters. Celebrate YOU! 🎉"
+      },
+      {
+        title: "Rainbow Vibes Only 🌈",
+        message: "You bring color to the world! Keep shining with pride and joy! ✨"
+      },
+      {
+        title: "Born This Way 🦄",
+        message: "Unique, bold, and beautiful — just like a unicorn! Keep being magical! 🦄"
+      }
+    ];
+
+    // Messages for No button popup
+    const noMessages = [
+      {
+        title: "No Worries! 😎",
+        message: "You do you! Life is all about being true to yourself. Keep shining! ✨"
+      },
+      {
+        title: "Cool and Confident! 👍",
+        message: "Being yourself is the best thing you can be. Stay awesome! 💪"
+      },
+      {
+        title: "Straight Shooter! 🎯",
+        message: "You know who you are, and that’s what counts. Keep rocking! 🎸"
+      },
+      {
+        title: "Unique and Proud! 🌟",
+        message: "Everyone’s different, and that’s what makes the world beautiful. Celebrate YOU! 🎉"
+      },
+      {
+        title: "Keep Smiling! 😊",
+        message: "Your happiness is what matters most. Keep spreading good vibes! 🌈"
+      }
+    ];
+
+    function moveNoButton() {
+      const btnWidth = noBtn.offsetWidth;
+      const btnHeight = noBtn.offsetHeight;
+      const maxX = window.innerWidth - btnWidth;
+      const maxY = window.innerHeight - btnHeight;
+
+      const randomX = Math.random() * maxX;
+      const randomY = Math.random() * maxY;
+
+      noBtn.style.left = randomX + 'px';
+      noBtn.style.top = randomY + 'px';
+    }
+
+    // Move the "No" button every 400 milliseconds
+    setInterval(moveNoButton, 400);
+
+    // Show modal popup on Yes button click with dynamic fun content
+    yesBtn.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * funMessages.length);
+      const { title, message } = funMessages[randomIndex];
+
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = message;
+
+      modal.classList.add('active');
+    });
+
+    // Show modal popup on No button click with dynamic fun content
+    noBtn.addEventListener('click', () => {
+      const randomIndex = Math.floor(Math.random() * noMessages.length);
+      const { title, message } = noMessages[randomIndex];
+
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalDesc').textContent = message;
+
+      modal.classList.add('active');
+    });
+
+    // Close modal on clicking close button
+    closeModalBtn.addEventListener('click', () => {
+      modal.classList.remove('active');
+    });
+
+    // Close modal if user clicks outside the modal content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+      }
+    });
+
+    // Close modal on pressing Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+      }
+    });
+  </script>
+</body>
+
+</html>
