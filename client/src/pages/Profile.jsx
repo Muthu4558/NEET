@@ -70,7 +70,7 @@ const Profile = () => {
       <div className="max-w-6xl mx-auto px-6 py-20 mt-14">
         <div className="bg-white/40 backdrop-blur-md border border-white/30 shadow-xl rounded-3xl p-10">
           <h1 className="text-4xl sm:text-5xl font-bold text-center text-teal-700 mb-10">
-            Welcome, {user.name}
+            Welcome, Dr.{user.name}
           </h1>
 
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 mb-10">
