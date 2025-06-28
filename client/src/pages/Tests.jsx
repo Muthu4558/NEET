@@ -13,7 +13,7 @@ const getNextSunday = () => {
 const Tests = () => {
   const [showModal, setShowModal] = useState(false);
   const sundayDate = getNextSunday();
-  const totalQuestions = 75;
+  const totalQuestions = 90;
   const recommendedTime = 90;
 
   const toggleModal = () => setShowModal(!showModal);
@@ -38,7 +38,7 @@ const Tests = () => {
               Test 1
             </div>
             <p className="text-sm text-teal-600 uppercase tracking-wide font-semibold mb-2">Next Test Date</p>
-            <h3 className="text-3xl font-bold text-teal-800 mb-4">{sundayDate}</h3>
+            <h3 className="text-3xl font-bold text-teal-800 mb-4">30-06-2025</h3>
 
             <div className="flex flex-col sm:flex-row justify-center gap-6 text-gray-700 text-lg font-medium mb-8">
               <div className="bg-teal-50 rounded-md px-6 py-3 shadow-sm border border-teal-200">

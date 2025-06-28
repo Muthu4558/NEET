@@ -1,455 +1,544 @@
 const questions = [
   {
     "id": 1,
-    "question": "What is the SI unit of pressure?",
-    "options": ["Pascal", "Joule", "Newton", "Watt"],
+    "question": "Which of the following is a derived SI unit?",
+    "options": ["Ampere", "Kilogram", "Pascal", "Candela"],
     "correctAnswer": "Pascal"
   },
   {
     "id": 2,
-    "question": "Which of the following is a derived quantity?",
-    "options": ["Length", "Mass", "Time", "Velocity"],
-    "correctAnswer": "Velocity"
+    "question": "A physical quantity has dimensions of [ML^2T^-2]. It may represent:",
+    "options": ["Energy", "Force", "Pressure", "Work"],
+    "correctAnswer": "Energy"
   },
   {
     "id": 3,
-    "question": "Displacement is a:",
-    "options": ["Scalar quantity", "Vector quantity", "Dimensionless", "None of the above"],
-    "correctAnswer": "Vector quantity"
+    "question": "A car accelerates from rest at a constant rate α for a time t and then decelerates at the same rate for the same time. What is the maximum velocity attained?",
+    "options": ["αt", "2αt", "αt/2", "t/α"],
+    "correctAnswer": "αt"
   },
   {
     "id": 4,
-    "question": "Which of the following represents uniformly accelerated motion?",
-    "options": ["v = u + at", "s = ut", "v = d/t", "s = vt"],
-    "correctAnswer": "v = u + at"
+    "question": "The slope of velocity-time graph gives:",
+    "options": ["Displacement", "Acceleration", "Speed", "Distance"],
+    "correctAnswer": "Acceleration"
   },
   {
     "id": 5,
-    "question": "The area under a velocity-time graph gives:",
-    "options": ["Speed", "Distance", "Displacement", "Acceleration"],
-    "correctAnswer": "Displacement"
+    "question": "A particle moves in a circle of radius R with a constant speed v. The acceleration of the particle is:",
+    "options": ["v²/R", "R/v²", "v/R", "v²R"],
+    "correctAnswer": "v²/R"
   },
   {
     "id": 6,
-    "question": "Newton's second law of motion gives the measure of:",
-    "options": ["Inertia", "Momentum", "Force", "Energy"],
-    "correctAnswer": "Force"
+    "question": "A man of mass 60 kg stands on a weighing scale in a lift which is moving upward with a uniform acceleration of 5 m/s². The reading of the scale is (g = 10 m/s²):",
+    "options": ["600 N", "900 N", "300 N", "0 N"],
+    "correctAnswer": "900 N"
   },
   {
     "id": 7,
-    "question": "Action and reaction forces act on:",
-    "options": ["Same body", "Different bodies", "At same point", "None"],
-    "correctAnswer": "Different bodies"
+    "question": "The tension in a string holding a block of 2 kg moving in a vertical circle of radius 2 m at the lowest point is (v = 3 m/s, g = 10 m/s²):",
+    "options": ["44 N", "28 N", "32 N", "40 N"],
+    "correctAnswer": "44 N"
   },
   {
     "id": 8,
-    "question": "The value of 'g' on the surface of Earth is approximately:",
-    "options": ["8.9 m/s²", "9.8 m/s²", "10.2 m/s²", "7.6 m/s²"],
-    "correctAnswer": "9.8 m/s²"
+    "question": "The value of acceleration due to gravity decreases with:",
+    "options": ["Increase in mass of Earth", "Height above the Earth's surface", "Depth below the surface", "Both B and C"],
+    "correctAnswer": "Both B and C"
   },
   {
     "id": 9,
-    "question": "Acceleration due to gravity on Moon is:",
-    "options": ["Equal to Earth", "1/6th of Earth", "9.8 m/s²", "Zero"],
-    "correctAnswer": "1/6th of Earth"
+    "question": "What is the escape velocity on Earth?",
+    "options": ["11.2 km/s", "7.9 km/s", "9.8 km/s", "12.5 km/s"],
+    "correctAnswer": "11.2 km/s"
   },
   {
     "id": 10,
-    "question": "Centripetal force always acts:",
-    "options": ["Outward", "Tangentially", "Inward", "Vertically"],
-    "correctAnswer": "Inward"
+    "question": "Moment of inertia of a thin rod of length L and mass M about an axis perpendicular to its length and through one end is:",
+    "options": ["(1/3)ML²", "(1/2)ML²", "(1/12)ML²", "(2/3)ML²"],
+    "correctAnswer": "(1/3)ML²"
   },
   {
     "id": 11,
-    "question": "Rotational analog of force is:",
-    "options": ["Torque", "Moment", "Power", "Angular velocity"],
-    "correctAnswer": "Torque"
+    "question": "A disc and a ring of same mass and radius are allowed to roll down an inclined plane. Which will reach the bottom first?",
+    "options": ["Disc", "Ring", "Both simultaneously", "Depends on slope"],
+    "correctAnswer": "Disc"
   },
   {
     "id": 12,
-    "question": "Moment of inertia of a body depends on:",
-    "options": ["Mass", "Axis of rotation", "Shape", "All of these"],
-    "correctAnswer": "All of these"
+    "question": "A body is projected vertically upwards with a speed of 20 m/s. The work done by the gravitational force when it reaches maximum height is:",
+    "options": ["Negative", "Positive", "Zero", "Infinite"],
+    "correctAnswer": "Negative"
   },
   {
     "id": 13,
-    "question": "Work done is zero when:",
-    "options": ["Force is zero", "Displacement is zero", "Angle is 90°", "All of the above"],
-    "correctAnswer": "All of the above"
+    "question": "Work done by centripetal force on a particle moving in circular path is:",
+    "options": ["Positive", "Negative", "Zero", "Infinite"],
+    "correctAnswer": "Zero"
   },
   {
     "id": 14,
-    "question": "SI unit of Power is:",
-    "options": ["Watt", "Joule", "Newton", "Kilowatt-hour"],
-    "correctAnswer": "Watt"
+    "question": "The relation between kinetic energy and momentum is:",
+    "options": ["K = p²/2m", "K = 2p²/m", "K = p²/m", "K = √p/m"],
+    "correctAnswer": "K = p²/2m"
   },
   {
     "id": 15,
-    "question": "Which law is used in the principle of calorimetry?",
-    "options": ["Law of conservation of energy", "Newton’s law", "Boyle’s law", "Charles’s law"],
-    "correctAnswer": "Law of conservation of energy"
+    "question": "According to kinetic theory, the pressure exerted by a gas is due to:",
+    "options": ["Attractive forces between molecules", "Repulsive forces", "Random motion of molecules", "Weight of gas molecules"],
+    "correctAnswer": "Random motion of molecules"
   },
   {
     "id": 16,
-    "question": "At constant temperature, volume of a gas is inversely proportional to pressure. This is:",
-    "options": ["Boyle's law", "Charles's law", "Avogadro's law", "Ideal gas law"],
-    "correctAnswer": "Boyle's law"
+    "question": "Which law states that the total pressure exerted by a mixture of non-reacting gases is equal to the sum of the partial pressures?",
+    "options": ["Boyle’s Law", "Dalton’s Law", "Charles’s Law", "Gay-Lussac's Law"],
+    "correctAnswer": "Dalton’s Law"
   },
   {
     "id": 17,
-    "question": "Average kinetic energy of gas molecules is directly proportional to:",
-    "options": ["Pressure", "Temperature", "Volume", "Density"],
+    "question": "Root mean square speed of gas molecules is directly proportional to:",
+    "options": ["Temperature", "Volume", "Mass", "Pressure"],
     "correctAnswer": "Temperature"
   },
   {
     "id": 18,
-    "question": "Which of the following is a thermodynamic state function?",
-    "options": ["Heat", "Work", "Internal Energy", "All of the above"],
-    "correctAnswer": "Internal Energy"
+    "question": "Which of the following has the highest root mean square speed at the same temperature?",
+    "options": ["Hydrogen", "Oxygen", "Nitrogen", "Carbon Dioxide"],
+    "correctAnswer": "Hydrogen"
   },
   {
     "id": 19,
-    "question": "Which law states that entropy of the universe always increases?",
-    "options": ["Zeroth law", "First law", "Second law", "Third law"],
-    "correctAnswer": "Second law"
+    "question": "In a cyclic process, the net work done by the system is equal to:",
+    "options": ["Internal energy", "Change in pressure", "Heat absorbed", "Area enclosed by the cycle in PV diagram"],
+    "correctAnswer": "Area enclosed by the cycle in PV diagram"
   },
   {
     "id": 20,
-    "question": "Unit of electric charge is:",
-    "options": ["Coulomb", "Volt", "Ampere", "Ohm"],
-    "correctAnswer": "Coulomb"
+    "question": "The efficiency of a Carnot engine depends on:",
+    "options": ["Working substance", "Temperature of source and sink", "Pressure", "Specific heat"],
+    "correctAnswer": "Temperature of source and sink"
   },
   {
     "id": 21,
-    "question": "Like charges always:",
-    "options": ["Attract", "Repel", "Neutralize", "None"],
-    "correctAnswer": "Repel"
+    "question": "Which process has zero change in internal energy?",
+    "options": ["Isothermal", "Adiabatic", "Isochoric", "Isobaric"],
+    "correctAnswer": "Isothermal"
   },
   {
     "id": 22,
-    "question": "Coulomb's law is valid only for:",
-    "options": ["Point charges", "Extended bodies", "Neutral bodies", "None of these"],
-    "correctAnswer": "Point charges"
-  },
-  {
-    "id": 23,
-    "question": "Electrostatic potential is:",
-    "options": ["A vector", "A scalar", "Always negative", "None"],
-    "correctAnswer": "A scalar"
-  },
-  {
-    "id": 24,
-    "question": "Unit of electric field is:",
-    "options": ["N/C", "C/N", "V", "Coulomb"],
-    "correctAnswer": "N/C"
-  },
-  {
-    "id": 25,
-    "question": "Work done in moving a charge in an equipotential surface is:",
-    "options": ["Maximum", "Zero", "Infinite", "Negative"],
+    "question": "Electric field inside a conductor in electrostatic equilibrium is:",
+    "options": ["Maximum", "Zero", "Uniform", "Variable"],
     "correctAnswer": "Zero"
   },
   {
+    "id": 23,
+    "question": "The electric flux through a closed surface depends on:",
+    "options": ["Volume enclosed", "Area of surface", "Net charge enclosed", "Shape of surface"],
+    "correctAnswer": "Net charge enclosed"
+  },
+  {
+    "id": 24,
+    "question": "The unit of electric flux is:",
+    "options": ["Nm²/C", "C/N", "N/C", "C/m²"],
+    "correctAnswer": "Nm²/C"
+  },
+  {
+    "id": 25,
+    "question": "Two point charges +Q and -Q are placed at a distance d. The electric dipole moment is:",
+    "options": ["Q × d", "Q/d", "Qd²", "Q + d"],
+    "correctAnswer": "Q × d"
+  },
+  {
     "id": 26,
-    "question": "Which of the following is a SI base unit?",
-    "options": ["Liter", "Mole", "Calorie", "Degree"],
-    "correctAnswer": "Mole"
+    "question": "Which of the following has the highest number of atoms?",
+    "options": ["1 mol H₂O", "1 mol NaCl", "1 mol CO₂", "1 mol CH₄"],
+    "correctAnswer": "1 mol CH₄"
   },
   {
     "id": 27,
-    "question": "Which law is used in determining the empirical formula from elemental analysis?",
-    "options": ["Law of conservation of mass", "Law of definite proportions", "Law of multiple proportions", "Avogadro’s law"],
-    "correctAnswer": "Law of definite proportions"
+    "question": "Which law is obeyed when a chemical reaction occurs in a closed container with no loss of mass?",
+    "options": ["Law of Definite Proportions", "Law of Conservation of Mass", "Law of Constant Composition", "Avogadro's Law"],
+    "correctAnswer": "Law of Conservation of Mass"
   },
   {
     "id": 28,
-    "question": "1 mole of any substance contains:",
-    "options": ["6.022 × 10²³ particles", "1 gram of particles", "1 liter of particles", "22.4 grams of particles"],
-    "correctAnswer": "6.022 × 10²³ particles"
+    "question": "What is the molarity of a solution containing 0.5 mol of NaOH in 250 mL of solution?",
+    "options": ["1 M", "2 M", "0.5 M", "0.2 M"],
+    "correctAnswer": "2 M"
   },
   {
     "id": 29,
-    "question": "The number of neutrons in carbon-12 is:",
-    "options": ["6", "12", "0", "18"],
-    "correctAnswer": "6"
+    "question": "Which quantum number determines the shape of an orbital?",
+    "options": ["Principal (n)", "Azimuthal (l)", "Magnetic (m)", "Spin (s)"],
+    "correctAnswer": "Azimuthal (l)"
   },
   {
     "id": 30,
-    "question": "Which subatomic particle was discovered by J.J. Thomson?",
-    "options": ["Proton", "Neutron", "Electron", "Nucleus"],
-    "correctAnswer": "Electron"
+    "question": "Which of the following is a correct set of quantum numbers for 3p electron?",
+    "options": ["n=3, l=1, m=0, s=+½", "n=3, l=2, m=0, s=+½", "n=2, l=1, m=0, s=−½", "n=3, l=0, m=1, s=+½"],
+    "correctAnswer": "n=3, l=1, m=0, s=+½"
   },
   {
     "id": 31,
-    "question": "Which quantum number defines the shape of an orbital?",
-    "options": ["Principal quantum number", "Azimuthal quantum number", "Magnetic quantum number", "Spin quantum number"],
-    "correctAnswer": "Azimuthal quantum number"
+    "question": "The energy of an electron in hydrogen atom in the nth orbit is given by:",
+    "options": ["-13.6/n² eV", "-13.6 × n² eV", "-13.6n eV", "-13.6/n eV"],
+    "correctAnswer": "-13.6/n² eV"
   },
   {
     "id": 32,
-    "question": "Which orbital has a spherical shape?",
-    "options": ["s", "p", "d", "f"],
-    "correctAnswer": "s"
-  },
-  {
-    "id": 33,
-    "question": "In a d orbital, the maximum number of electrons that can be accommodated is:",
-    "options": ["2", "6", "10", "14"],
-    "correctAnswer": "10"
-  },
-  {
-    "id": 34,
-    "question": "Which of the following has the highest electronegativity?",
-    "options": ["Oxygen", "Chlorine", "Fluorine", "Nitrogen"],
+    "question": "Which among the following has highest electronegativity?",
+    "options": ["Oxygen", "Fluorine", "Chlorine", "Nitrogen"],
     "correctAnswer": "Fluorine"
   },
   {
+    "id": 33,
+    "question": "The bond order of O₂ molecule is:",
+    "options": ["0", "1", "2", "3"],
+    "correctAnswer": "2"
+  },
+  {
+    "id": 34,
+    "question": "Which hybridization corresponds to a linear molecular geometry?",
+    "options": ["sp", "sp²", "sp³", "dsp²"],
+    "correctAnswer": "sp"
+  },
+  {
     "id": 35,
-    "question": "Ionic bonds are formed between:",
-    "options": ["Two metals", "Two non-metals", "A metal and a non-metal", "Inert gases"],
-    "correctAnswer": "A metal and a non-metal"
+    "question": "What is the shape of SF₄ molecule?",
+    "options": ["Tetrahedral", "Trigonal bipyramidal", "See-saw", "Square planar"],
+    "correctAnswer": "See-saw"
   },
   {
     "id": 36,
-    "question": "A covalent bond is formed by:",
-    "options": ["Transfer of electrons", "Sharing of electrons", "Loss of electrons", "Gain of electrons"],
-    "correctAnswer": "Sharing of electrons"
+    "question": "Which of the following statements is true for a spontaneous reaction?",
+    "options": ["ΔG > 0", "ΔH = 0", "ΔS < 0", "ΔG < 0"],
+    "correctAnswer": "ΔG < 0"
   },
   {
     "id": 37,
-    "question": "Which of the following molecules has a linear geometry?",
-    "options": ["CO₂", "NH₃", "CH₄", "H₂O"],
-    "correctAnswer": "CO₂"
+    "question": "Which law states that the total energy of the universe remains constant?",
+    "options": ["First Law of Thermodynamics", "Second Law of Thermodynamics", "Hess's Law", "Boyle’s Law"],
+    "correctAnswer": "First Law of Thermodynamics"
   },
   {
     "id": 38,
-    "question": "In chemical thermodynamics, a spontaneous process is one that:",
-    "options": ["Occurs on its own", "Requires external energy", "Is always fast", "Never occurs"],
-    "correctAnswer": "Occurs on its own"
+    "question": "For an ideal gas undergoing isothermal expansion, which of the following is true?",
+    "options": ["ΔU = 0", "q = 0", "w = 0", "ΔH > 0"],
+    "correctAnswer": "ΔU = 0"
   },
   {
     "id": 39,
-    "question": "Enthalpy change is defined as:",
-    "options": ["ΔE + PΔV", "ΔV + PΔE", "ΔP + VΔE", "ΔQ - W"],
-    "correctAnswer": "ΔE + PΔV"
+    "question": "In which of the following compounds is resonance not possible?",
+    "options": ["C₆H₆", "CH₄", "CH₂=CH−CH=CH₂", "CO₃²⁻"],
+    "correctAnswer": "CH₄"
   },
   {
     "id": 40,
-    "question": "Which of the following hydrocarbons is alkyne?",
-    "options": ["Ethene", "Ethane", "Ethyne", "Propane"],
-    "correctAnswer": "Ethyne"
+    "question": "Which of the following alkanes will give only one monochlorinated product?",
+    "options": ["n-butane", "isobutane", "neopentane", "propane"],
+    "correctAnswer": "neopentane"
   },
   {
     "id": 41,
-    "question": "Which hydrocarbon is used in LPG gas?",
-    "options": ["Methane", "Ethane", "Butane", "Propene"],
-    "correctAnswer": "Butane"
+    "question": "What is the major product of the reaction of 2-butene with Br₂ in CCl₄?",
+    "options": ["1,2-dibromobutane", "2,3-dibromobutane", "Butanol", "2-butanol"],
+    "correctAnswer": "2,3-dibromobutane"
   },
   {
     "id": 42,
-    "question": "The IUPAC name of CH₄ is:",
-    "options": ["Methene", "Methyne", "Methane", "Methyl"],
-    "correctAnswer": "Methane"
+    "question": "Which hydrocarbon shows geometrical isomerism?",
+    "options": ["C₂H₆", "C₂H₄", "C₄H₈", "CH₄"],
+    "correctAnswer": "C₄H₈"
   },
   {
     "id": 43,
-    "question": "Redox reactions involve:",
-    "options": ["Only oxidation", "Only reduction", "Both oxidation and reduction", "Neither oxidation nor reduction"],
-    "correctAnswer": "Both oxidation and reduction"
+    "question": "In redox reactions, oxidising agents are those which:",
+    "options": ["Gain electrons", "Lose electrons", "Gain protons", "Lose protons"],
+    "correctAnswer": "Gain electrons"
   },
   {
     "id": 44,
-    "question": "The reducing agent in a redox reaction is the substance that:",
-    "options": ["Gets oxidized", "Gets reduced", "Loses protons", "Gains neutrons"],
-    "correctAnswer": "Gets oxidized"
+    "question": "Which of the following metals has the highest standard reduction potential?",
+    "options": ["Fe", "Ag", "Cu", "Zn"],
+    "correctAnswer": "Ag"
   },
   {
     "id": 45,
-    "question": "Which of the following is an oxidizing agent?",
-    "options": ["H₂", "Na", "O₂", "Cl⁻"],
-    "correctAnswer": "O₂"
+    "question": "What is the oxidation number of Mn in KMnO₄?",
+    "options": ["+2", "+4", "+6", "+7"],
+    "correctAnswer": "+7"
   },
   {
     "id": 46,
-    "question": "Which of the following conducts electricity in molten state?",
-    "options": ["NaCl", "CCl₄", "CH₄", "CO₂"],
-    "correctAnswer": "NaCl"
-  },
-  {
-    "id": 47,
-    "question": "In electrolysis, the anode is the electrode where:",
-    "options": ["Reduction occurs", "Oxidation occurs", "Electrons are gained", "No reaction occurs"],
-    "correctAnswer": "Oxidation occurs"
-  },
-  {
-    "id": 48,
-    "question": "Which law relates mass deposited and charge passed during electrolysis?",
-    "options": ["Faraday’s first law", "Boyle’s law", "Ohm’s law", "Charles’s law"],
-    "correctAnswer": "Faraday’s first law"
-  },
-  {
-    "id": 49,
-    "question": "Which ion moves toward the cathode during electrolysis?",
-    "options": ["Anion", "Cation", "Neutral", "None"],
-    "correctAnswer": "Cation"
-  },
-  {
-    "id": 50,
-    "question": "The unit of electrode potential is:",
-    "options": ["Volt", "Ampere", "Ohm", "Farad"],
+    "question": "The unit of standard electrode potential is:",
+    "options": ["Volt", "Joule", "Coulomb", "Ohm"],
     "correctAnswer": "Volt"
   },
   {
+    "id": 47,
+    "question": "In electrolysis, the amount of substance deposited is directly proportional to:",
+    "options": ["Current only", "Time only", "Product of current and time", "Resistance"],
+    "correctAnswer": "Product of current and time"
+  },
+  {
+    "id": 48,
+    "question": "Which of the following reactions is a redox reaction?",
+    "options": ["NaOH + HCl → NaCl + H₂O", "CaCO₃ → CaO + CO₂", "Zn + H₂SO₄ → ZnSO₄ + H₂", "AgNO₃ + NaCl → AgCl + NaNO₃"],
+    "correctAnswer": "Zn + H₂SO₄ → ZnSO₄ + H₂"
+  },
+  {
+    "id": 49,
+    "question": "During discharge of a lead-acid battery:",
+    "options": ["Pb is oxidised, PbO₂ is reduced", "Pb is reduced, PbO₂ is oxidised", "Both are reduced", "Both are oxidised"],
+    "correctAnswer": "Pb is oxidised, PbO₂ is reduced"
+  },
+  {
+    "id": 50,
+    "question": "Which cell is used in pacemakers and hearing aids?",
+    "options": ["Leclanche cell", "Daniell cell", "Mercury cell", "Fuel cell"],
+    "correctAnswer": "Mercury cell"
+  },
+  {
     "id": 51,
-    "question": "Who is known as the father of taxonomy?",
-    "options": ["Charles Darwin", "Aristotle", "Carolus Linnaeus", "Gregor Mendel"],
-    "correctAnswer": "Carolus Linnaeus"
+    "question": "Which of the following is not a characteristic of living organisms?",
+    "options": ["Growth", "Metabolism", "Reproduction", "Crystallization"],
+    "correctAnswer": "Crystallization"
   },
   {
     "id": 52,
-    "question": "Binomial nomenclature consists of:",
-    "options": ["Family and genus", "Order and species", "Genus and species", "Phylum and class"],
-    "correctAnswer": "Genus and species"
+    "question": "Binomial nomenclature was given by:",
+    "options": ["Linnaeus", "Darwin", "Haeckel", "Whittaker"],
+    "correctAnswer": "Linnaeus"
   },
   {
     "id": 53,
-    "question": "Which of the following is not a taxonomic category?",
-    "options": ["Phylum", "Class", "Kingdom", "Species name"],
-    "correctAnswer": "Species name"
+    "question": "In dicot stems, vascular bundles are:",
+    "options": ["Conjoint, closed", "Conjoint, open", "Radial", "Scattered"],
+    "correctAnswer": "Conjoint, open"
   },
   {
     "id": 54,
-    "question": "Which type of epithelium lines the kidney tubules?",
-    "options": ["Squamous", "Columnar", "Cuboidal", "Ciliated"],
-    "correctAnswer": "Cuboidal"
+    "question": "Companion cells are associated with:",
+    "options": ["Xylem", "Phloem", "Cambium", "Collenchyma"],
+    "correctAnswer": "Phloem"
   },
   {
     "id": 55,
-    "question": "Which connective tissue connects muscle to bone?",
-    "options": ["Ligament", "Tendon", "Cartilage", "Areolar"],
-    "correctAnswer": "Tendon"
+    "question": "Which one of the following has a cell wall made of cellulose?",
+    "options": ["Fungi", "Bacteria", "Plant cells", "Animal cells"],
+    "correctAnswer": "Plant cells"
   },
   {
     "id": 56,
-    "question": "Which organ is absent in plants but present in animals?",
-    "options": ["Chloroplast", "Cell wall", "Centrosome", "Vacuole"],
-    "correctAnswer": "Centrosome"
+    "question": "Plasmodesmata help in:",
+    "options": ["Cytoplasmic streaming", "Cell division", "Intercellular transport", "DNA replication"],
+    "correctAnswer": "Intercellular transport"
   },
   {
     "id": 57,
-    "question": "Which cell organelle is known as the powerhouse of the cell?",
-    "options": ["Chloroplast", "Mitochondria", "Golgi body", "Nucleus"],
-    "correctAnswer": "Mitochondria"
+    "question": "Mitochondria are absent in:",
+    "options": ["Eukaryotic cells", "Bacterial cells", "Animal cells", "Fungal cells"],
+    "correctAnswer": "Bacterial cells"
   },
   {
     "id": 58,
-    "question": "Which of the following is not a component of the endomembrane system?",
-    "options": ["Golgi complex", "Lysosome", "Mitochondria", "Endoplasmic reticulum"],
-    "correctAnswer": "Mitochondria"
+    "question": "Which of the following is not part of the endomembrane system?",
+    "options": ["Endoplasmic reticulum", "Golgi body", "Lysosome", "Peroxisome"],
+    "correctAnswer": "Peroxisome"
   },
   {
     "id": 59,
-    "question": "The fluid mosaic model explains the structure of:",
-    "options": ["Mitochondria", "Plasma membrane", "Chloroplast", "Nucleus"],
-    "correctAnswer": "Plasma membrane"
+    "question": "Water movement through the cell wall is known as:",
+    "options": ["Symplast", "Apoplast", "Transpiration", "Osmosis"],
+    "correctAnswer": "Apoplast"
   },
   {
     "id": 60,
-    "question": "Which pigment is responsible for capturing light in photosynthesis?",
-    "options": ["Carotene", "Chlorophyll", "Anthocyanin", "Xanthophyll"],
-    "correctAnswer": "Chlorophyll"
+    "question": "Root pressure is responsible for:",
+    "options": ["Ascent of sap", "Transpiration", "Guttation", "Photosynthesis"],
+    "correctAnswer": "Guttation"
   },
   {
     "id": 61,
-    "question": "Stomata open due to:",
-    "options": ["Influx of potassium ions", "Efflux of water", "Efflux of potassium ions", "Lack of sunlight"],
-    "correctAnswer": "Influx of potassium ions"
+    "question": "Which ion plays a key role in the opening and closing of stomata?",
+    "options": ["Na⁺", "K⁺", "Cl⁻", "Ca²⁺"],
+    "correctAnswer": "K⁺"
   },
   {
     "id": 62,
-    "question": "Transpiration is least in:",
-    "options": ["Dry wind", "Sunny day", "Humid condition", "Hot and dry day"],
-    "correctAnswer": "Humid condition"
+    "question": "Z-scheme of photosynthesis is related to:",
+    "options": ["ATP synthesis", "CO₂ fixation", "Electron transport", "Photolysis"],
+    "correctAnswer": "Electron transport"
   },
   {
     "id": 63,
-    "question": "The main site of photosynthesis in a leaf is:",
-    "options": ["Upper epidermis", "Xylem", "Phloem", "Palisade mesophyll"],
-    "correctAnswer": "Palisade mesophyll"
+    "question": "Photorespiration occurs in:",
+    "options": ["C₃ plants only", "C₄ plants only", "CAM plants only", "Both C₃ and C₄ plants"],
+    "correctAnswer": "C₃ plants only"
   },
   {
     "id": 64,
-    "question": "The enzyme pepsin acts in:",
-    "options": ["Mouth", "Small intestine", "Stomach", "Large intestine"],
-    "correctAnswer": "Stomach"
+    "question": "Which of the following hormones promotes senescence?",
+    "options": ["Auxin", "Cytokinin", "Ethylene", "Gibberellin"],
+    "correctAnswer": "Ethylene"
   },
   {
     "id": 65,
-    "question": "Which blood vessel carries oxygenated blood from lungs to heart?",
-    "options": ["Pulmonary artery", "Pulmonary vein", "Aorta", "Vena cava"],
-    "correctAnswer": "Pulmonary vein"
+    "question": "Which of the following is the immediate product of photosynthesis?",
+    "options": ["Sucrose", "Glucose", "Fructose", "Starch"],
+    "correctAnswer": "Glucose"
   },
   {
     "id": 66,
-    "question": "Which part of the brain controls breathing?",
-    "options": ["Cerebellum", "Medulla oblongata", "Cerebrum", "Thalamus"],
-    "correctAnswer": "Medulla oblongata"
+    "question": "Which enzyme is responsible for carbon fixation in the Calvin cycle?",
+    "options": ["PEP carboxylase", "Rubisco", "Hexokinase", "Carbonic anhydrase"],
+    "correctAnswer": "Rubisco"
   },
   {
     "id": 67,
-    "question": "Which hormone regulates glucose levels in blood?",
-    "options": ["Adrenaline", "Insulin", "Thyroxine", "Cortisol"],
-    "correctAnswer": "Insulin"
+    "question": "In angiosperms, double fertilization results in formation of:",
+    "options": ["Zygote and embryo", "Zygote and endosperm", "Endosperm only", "Embryo only"],
+    "correctAnswer": "Zygote and endosperm"
   },
   {
     "id": 68,
-    "question": "Which structure filters the blood in the kidney?",
-    "options": ["Tubule", "Nephron", "Glomerulus", "Ureter"],
-    "correctAnswer": "Glomerulus"
+    "question": "During which stage of mitosis does the nuclear envelope reform?",
+    "options": ["Prophase", "Anaphase", "Telophase", "Metaphase"],
+    "correctAnswer": "Telophase"
   },
   {
     "id": 69,
-    "question": "What is the genetic composition of a gamete?",
-    "options": ["Diploid", "Triploid", "Tetraploid", "Haploid"],
-    "correctAnswer": "Haploid"
+    "question": "Which pigment is responsible for photoperiodism?",
+    "options": ["Chlorophyll", "Carotene", "Phytochrome", "Xanthophyll"],
+    "correctAnswer": "Phytochrome"
   },
   {
     "id": 70,
-    "question": "Gregor Mendel used which plant for his experiments?",
-    "options": ["Sunflower", "Wheat", "Pea", "Tomato"],
-    "correctAnswer": "Pea"
+    "question": "Lenticels are involved in:",
+    "options": ["Water conduction", "Photosynthesis", "Secondary growth", "Gaseous exchange"],
+    "correctAnswer": "Gaseous exchange"
   },
   {
     "id": 71,
-    "question": "The phenotypic ratio of monohybrid cross in F2 generation is:",
-    "options": ["3:1", "1:2:1", "9:3:3:1", "2:1"],
-    "correctAnswer": "3:1"
+    "question": "Which part of the human brain regulates heartbeat and respiration?",
+    "options": ["Cerebrum", "Cerebellum", "Medulla oblongata", "Hypothalamus"],
+    "correctAnswer": "Medulla oblongata"
   },
   {
     "id": 72,
-    "question": "Which term describes the physical appearance of an organism?",
-    "options": ["Genotype", "Phenotype", "Karyotype", "Genome"],
-    "correctAnswer": "Phenotype"
+    "question": "What type of epithelium is found lining the kidney tubules?",
+    "options": ["Ciliated", "Squamous", "Cuboidal", "Columnar"],
+    "correctAnswer": "Cuboidal"
   },
   {
     "id": 73,
-    "question": "A heterozygous tall pea plant is crossed with a dwarf plant. The ratio of tall to dwarf in offspring will be:",
-    "options": ["1:1", "3:1", "2:1", "All tall"],
-    "correctAnswer": "1:1"
+    "question": "Which of the following is not a connective tissue?",
+    "options": ["Cartilage", "Adipose", "Blood", "Muscle"],
+    "correctAnswer": "Muscle"
   },
   {
     "id": 74,
-    "question": "Which law of inheritance states that alleles segregate during gamete formation?",
-    "options": ["Law of dominance", "Law of segregation", "Law of independent assortment", "Law of purity"],
-    "correctAnswer": "Law of segregation"
+    "question": "The functional unit of a muscle fiber is:",
+    "options": ["Myofibril", "Sarcomere", "Sarcolemma", "Actin"],
+    "correctAnswer": "Sarcomere"
   },
   {
     "id": 75,
-    "question": "Mendel's dihybrid cross led to which phenotypic ratio in F2 generation?",
-    "options": ["3:1", "1:2:1", "9:3:3:1", "1:1:1:1"],
-    "correctAnswer": "9:3:3:1"
+    "question": "Which blood group is known as the universal donor?",
+    "options": ["A", "B", "AB", "O"],
+    "correctAnswer": "O"
+  },
+  {
+    "id": 76,
+    "question": "Which valve is found between left atrium and left ventricle?",
+    "options": ["Tricuspid", "Pulmonary", "Mitral", "Aortic"],
+    "correctAnswer": "Mitral"
+  },
+  {
+    "id": 77,
+    "question": "Which enzyme is secreted in saliva?",
+    "options": ["Pepsin", "Trypsin", "Amylase", "Lipase"],
+    "correctAnswer": "Amylase"
+  },
+  {
+    "id": 78,
+    "question": "Where does most nutrient absorption occur in the human body?",
+    "options": ["Stomach", "Large intestine", "Small intestine", "Liver"],
+    "correctAnswer": "Small intestine"
+  },
+  {
+    "id": 79,
+    "question": "The functional unit of the kidney is:",
+    "options": ["Ureter", "Glomerulus", "Neuron", "Nephron"],
+    "correctAnswer": "Nephron"
+  },
+  {
+    "id": 80,
+    "question": "Which hormone regulates water balance in the body?",
+    "options": ["Insulin", "ADH", "Thyroxine", "Cortisol"],
+    "correctAnswer": "ADH"
+  },
+  {
+    "id": 81,
+    "question": "Which gland is both endocrine and exocrine?",
+    "options": ["Thyroid", "Pancreas", "Adrenal", "Pituitary"],
+    "correctAnswer": "Pancreas"
+  },
+  {
+    "id": 82,
+    "question": "Which antibody is most abundant in human plasma?",
+    "options": ["IgA", "IgD", "IgG", "IgM"],
+    "correctAnswer": "IgG"
+  },
+  {
+    "id": 83,
+    "question": "The cell-mediated immunity is carried out by:",
+    "options": ["B cells", "T cells", "Macrophages", "Erythrocytes"],
+    "correctAnswer": "T cells"
+  },
+  {
+    "id": 84,
+    "question": "The correct sequence of events in fertilization is:",
+    "options": ["Capacitation → Acrosome reaction → Fusion", "Acrosome reaction → Capacitation → Fusion", "Fusion → Capacitation → Acrosome reaction", "Capacitation → Fusion → Acrosome reaction"],
+    "correctAnswer": "Capacitation → Acrosome reaction → Fusion"
+  },
+  {
+    "id": 85,
+    "question": "Sex is determined in humans by:",
+    "options": ["Number of chromosomes", "X chromosome", "Y chromosome", "Z chromosome"],
+    "correctAnswer": "Y chromosome"
+  },
+  {
+    "id": 86,
+    "question": "Which stage of meiosis is responsible for genetic recombination?",
+    "options": ["Metaphase I", "Anaphase II", "Prophase I", "Telophase I"],
+    "correctAnswer": "Prophase I"
+  },
+  {
+    "id": 87,
+    "question": "A cross between a tall (TT) and a dwarf (tt) plant yields:",
+    "options": ["All tall", "All dwarf", "1:1 ratio", "3:1 ratio"],
+    "correctAnswer": "All tall"
+  },
+  {
+    "id": 88,
+    "question": "What is the probability of a hemophilic son from a carrier mother and a normal father?",
+    "options": ["0%", "25%", "50%", "100%"],
+    "correctAnswer": "50%"
+  },
+  {
+    "id": 89,
+    "question": "Which of the following diseases is a sex-linked recessive disorder?",
+    "options": ["Thalassemia", "Down syndrome", "Haemophilia", "Turner syndrome"],
+    "correctAnswer": "Haemophilia"
+  },
+  {
+    "id": 90,
+    "question": "If a trait appears in the F1 generation and reappears in F2, it is called:",
+    "options": ["Dominant", "Recessive", "Codominant", "Incomplete"],
+    "correctAnswer": "Recessive"
   }
-
 ]
 
 export default questions;
