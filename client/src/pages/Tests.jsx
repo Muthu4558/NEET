@@ -1,128 +1,71 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
-
-const getNextSunday = () => {
-  const today = new Date();
-  const nextSunday = new Date(today);
-  nextSunday.setDate(today.getDate() + ((7 - today.getDay()) % 7 || 7));
-  return nextSunday.toDateString();
-};
+import Bot from '../components/Bot';
 
 const Tests = () => {
-  const [showModal, setShowModal] = useState(false);
-  const sundayDate = getNextSunday();
-  const totalQuestions = 90;
-  const recommendedTime = 90;
+  const [tests, setTests] = useState([]);
 
-  const toggleModal = () => setShowModal(!showModal);
+  useEffect(() => {
+    const fetchTests = async () => {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/test`);
+      const data = await res.json();
+      setTests(data);
+    };
+    fetchTests();
+  }, []);
 
   return (
-    <div className="bg-gradient-to-br from-white via-blue-50 to-teal-50 text-gray-800 font-sans min-h-screen">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-white via-blue-50 to-teal-100">
       <Navbar />
-      <main className="pt-24 pb-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-center text-teal-800 mb-6">
-            📝 Weekly NEET Practice Test
-          </h2>
-          <p className="text-center text-lg text-gray-700 max-w-2xl mx-auto mt-4 mb-10">
-            Every Sunday, a full-length NEET practice test will be conducted to keep your preparation consistent and focused.
-            Each test includes <span className="font-semibold text-teal-700">75 questions</span> to be solved in
-            <span className="font-semibold text-teal-700"> 90 minutes</span>, simulating the real exam experience.
-            Stay disciplined, show up each week, and measure your growth—one Sunday at a time. 💪
-          </p>
 
-          <div className="bg-white rounded-xl shadow-md p-8 text-center border-l-4 border-teal-500 relative">
-            <div className="absolute -top-3 -left-3 bg-teal-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-              Test 1
-            </div>
-            <p className="text-sm text-teal-600 uppercase tracking-wide font-semibold mb-2">Next Test Date</p>
-            <h3 className="text-3xl font-bold text-teal-800 mb-4">30-06-2025</h3>
+      <main className="flex-grow pt-24 pb-20 max-w-6xl mx-auto px-4">
+        <div className="text-center mb-10">
+          <h2 className="text-4xl font-bold text-teal-700 mb-2">📝 Weekly NEET Practice Tests</h2>
+          <p className="text-lg text-gray-700">Boost your confidence and measure your performance weekly.</p>
+        </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-6 text-gray-700 text-lg font-medium mb-8">
-              <div className="bg-teal-50 rounded-md px-6 py-3 shadow-sm border border-teal-200">
-                ❓ Questions: <span className="font-semibold">{totalQuestions}</span>
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
+          {tests.map((test) => (
+            <div
+              key={test._id}
+              className="relative bg-white/50 backdrop-blur-md border border-white/30 p-8 rounded-3xl shadow-2xl hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] hover:scale-[1.03] transition-all duration-300 group overflow-hidden"
+            >
+              <div className="absolute top-0 right-0 bg-gradient-to-tr from-teal-500 to-teal-700 text-white text-sm font-semibold px-4 py-1 rounded-bl-xl shadow">
+                🧪 NEET Test
               </div>
-              <div className="bg-teal-50 rounded-md px-6 py-3 shadow-sm border border-teal-200">
-                ⏱️ Time: <span className="font-semibold">{recommendedTime} mins</span>
-              </div>
-            </div>
 
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button
-                onClick={toggleModal}
-                className="bg-white border border-teal-600 text-teal-700 font-semibold px-6 py-3 rounded-full shadow-lg hover:bg-teal-50 transition"
-              >
-                📚 Covered Topics
-              </button>
-              <Link to="/test/start">
-                <button className="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-3 rounded-full shadow-lg transition">
+              <h3 className="text-3xl font-extrabold text-teal-800 mb-3 group-hover:text-[#0f172a] transition duration-200">
+                {test.testName}
+              </h3>
+
+              <p className="text-base text-gray-600 mb-2">
+                📅 {new Date(test.testDate).toLocaleDateString()}
+              </p>
+
+              <p className="text-base text-gray-700 mb-6">
+                ❓ <strong>{test.questions.length}</strong> Questions &middot; ⏱️ 90 minutes
+              </p>
+
+              <Link to={`/test/start/${test._id}`}>
+                <button className="w-full bg-gradient-to-br from-[#0f172a] via-[#134e4a] to-[#0f172a] hover:from-[#2dd4bf] hover:via-[#0d9488] hover:to-[#2dd4bf] text-white font-semibold text-lg py-3 rounded-xl shadow-md transition-all duration-300 hover:scale-105">
                   🚀 Start Test
                 </button>
               </Link>
             </div>
-          </div>
+          ))}
         </div>
+
+
+        {tests.length === 0 && (
+          <p className="text-center text-gray-500 mt-16 italic">No tests available at the moment.</p>
+        )}
       </main>
+      <Bot />
       <Footer />
-
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center px-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full p-6 relative shadow-lg overflow-y-auto max-h-[90vh]">
-            <button
-              onClick={toggleModal}
-              className="absolute top-3 right-3 text-gray-600 hover:text-red-500 text-2xl"
-            >
-              &times;
-            </button>
-            <h3 className="text-2xl font-bold text-teal-700 mb-4 text-center">📚 Covered Topics</h3>
-
-            <div className="grid sm:grid-cols-3 gap-6 text-sm text-gray-800">
-              <div>
-                <h4 className="text-teal-600 font-semibold mb-2">📘 Physics</h4>
-                <ul className="space-y-1 list-disc list-inside">
-                  <li>Physics and Measurement</li>
-                  <li>Kinematics</li>
-                  <li>Laws of Motion</li>
-                  <li>Gravitation</li>
-                  <li>Rotational Motion</li>
-                  <li>Work, Energy and Power</li>
-                  <li>Kinetic Theory of Gases</li>
-                  <li>Thermodynamics</li>
-                  <li>Electrostatics</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-teal-600 font-semibold mb-2">🧪 Chemistry</h4>
-                <ul className="space-y-1 list-disc list-inside">
-                  <li>Basic Concepts of Chemistry</li>
-                  <li>Atomic Structure</li>
-                  <li>Chemical Bonding & Molecular Structure</li>
-                  <li>Chemical Thermodynamics</li>
-                  <li>Hydrocarbons</li>
-                  <li>Redox Reaction & Electrochemistry</li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="text-teal-600 font-semibold mb-2">🌿 Biology</h4>
-                <ul className="space-y-1 list-disc list-inside">
-                  <li>Diversity in Living World</li>
-                  <li>Structural Organisation in Plants & Animals</li>
-                  <li>Cell Structure and Function</li>
-                  <li>Plant Physiology</li>
-                  <li>Human Physiology</li>
-                  <li>Classical Genetics</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
+
   );
 };
 

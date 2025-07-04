@@ -1,9 +1,10 @@
-// pages/Home.jsx
-import React from 'react';
-import { Notebook, Stethoscope, Brain, Medal } from 'lucide-react';
+import { Stethoscope, Brain, Medal } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import NEETQuestionPapers from '../components/NEETQuestionPapers';
+import Analystics from '../components/Analystics';
+import Bot from '../components/Bot';
 
 const Home = () => {
   return (
@@ -17,15 +18,18 @@ const Home = () => {
             <p className="inline-block bg-white/60 text-teal-900 text-sm px-4 py-1 rounded-full mb-4 font-semibold uppercase tracking-wide">
               Weekly Tests · Consistent Progress
             </p>
-            <h2 className="text-5xl md:text-6xl font-extrabold text-teal-800 mb-6 leading-tight">
+            <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight 
+            bg-gradient-to-r from-[#0f172a] via-[#134e4a] to-[#0f172a] 
+            text-transparent bg-clip-text">
               Let Your NEET Journey Shine Bright ✨
             </h2>
+
             <p className="text-lg md:text-xl max-w-2xl mx-auto text-gray-700">
               You are not alone. We're here to help you revise smart, test strong, and rise to become a future doctor.
             </p>
             <Link
               to="/tests"
-              className="mt-8 inline-block bg-teal-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-teal-700 transition"
+              className="mt-8 inline-block bg-gradient-to-br from-[#0f172a] via-[#134e4a] to-[#0f172a] hover:from-[#2dd4bf] hover:via-[#0d9488] hover:to-[#2dd4bf] text-white px-6 py-3 rounded-full shadow-md hover:bg-teal-700 transition"
             >
               🚀 Start Weekly Test
             </Link>
@@ -61,7 +65,7 @@ const Home = () => {
       </section>
 
       {/* Notes Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-blue-50" id="notes">
+      {/* <section className="py-20 bg-gradient-to-b from-white to-blue-50" id="notes">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Notebook className="w-10 h-10 mx-auto text-teal-500 mb-4" />
           <h2 className="text-4xl font-bold text-teal-700">📘 NEET Notes & Materials</h2>
@@ -70,8 +74,10 @@ const Home = () => {
           </p>
           <h3 className="text-3xl text-teal-600 font-semibold mt-16 animate-pulse">Coming Soon!</h3>
         </div>
-      </section>
-
+      </section> */}
+      <NEETQuestionPapers />
+      <Analystics />
+      <Bot />
       <Footer />
     </div>
   );

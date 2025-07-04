@@ -1,3 +1,4 @@
+// Login.jsx
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
@@ -21,7 +22,7 @@ const Login = () => {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
       toast.success('Login successful');
-      navigate(redirect);
+      navigate(redirect); // Redirects to the page user originally tried to access
     } catch (err) {
       toast.error('Invalid credentials');
     } finally {
