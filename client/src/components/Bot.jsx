@@ -11,9 +11,9 @@ const Bot = () => {
   ]);
   const [input, setInput] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-
-  const GEMINI_API_KEY = 'AIzaSyDOa1mi0fYSJ4_p5qB0r-TLIl7MNuip_gc'; // Add your Gemini API key
-  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
+  
+const GEMINI_API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   const toggleChat = () => setOpen(!open);
 
